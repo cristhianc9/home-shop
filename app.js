@@ -18,8 +18,8 @@ Vue.component('product',{
             <em class="textarea">{{producto.descripcion}}</em> 
             <ul>
                 <li v-for="presentacion in producto.presentaciones">    
-                <button v-on:click="addToCart({presentacion})"><img class="button_img" src="/iconos/agregar-a-carrito.png" alt="Agregar al carrito">Añadir</button>    
-                <label>{{presentacion.cantidad}}{{presentacion.unidad}} a USD {{presentacion.precio}} </label>                                        
+                <button v-on:click="addToCart(presentacion)"><img class="button_img" src="/iconos/agregar-a-carrito.png" alt="Agregar al carrito">Añadir</button>    
+                <label>{{presentacion.cantidad}}{{presentacion.unidad}} a USD{{presentacion.precio}} </label>                                        
                 </li>
             </ul>            
         </div>
@@ -39,11 +39,13 @@ var app = new Vue({
         el: '#app',
         data: {
             productosLista: {...productos},
-            cart: []
+            cart: [],
+            total: 0            
         },
         methods: {
             updateCart(presentacion){
-                this.cart.push(presentacion)
+                this.cart.push(presentacion)                
+                this.total += presentacion.precio
             }
         }    
 })
