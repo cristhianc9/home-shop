@@ -47,10 +47,8 @@
   margin-top: 5px;
 }
 
-.cart {
-  margin-right: 25px;
-  float: right;
-  border: 1px solid #d8d8d8;
+.cart {  
+  float: right;  
   padding: 5px 20px;
   color: #000000;
 }
