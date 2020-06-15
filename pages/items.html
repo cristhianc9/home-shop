@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Productos</title>
+    <link rel="stylesheet" type="text/css" href="items.css">
+    <link rel="stylesheet" type="text/css" href="../styles.css">
+</head>
+<body>
+    <div id="app">
+        <header class="header">
+            <img class="header__img" src="../iconos/LOGO_RLM.jpg" alt="Rancho Las Marias">                
+            <div class="cart">
+                <h3>Carrito({{ cart.length }})</h3>
+            </div>
+        </header>
+        
+        <section class="producto__container">                                       
+            <section class="producto">                            
+                <div v-for="producto in productosLista">
+                    <product :producto="producto" @add-to-cart="updateCart"></product>
+                </div>                
+            </section>
+        </section>
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="items.js"></script>
+    <script src="../app.js"></script>
+
+
+</body>
+</html>
